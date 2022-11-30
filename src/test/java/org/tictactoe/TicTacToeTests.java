@@ -44,6 +44,12 @@ public class TicTacToeTests {
         // Precisamos criar a estrutura de dados que representará o tabuleiro (board)
         // Espaço ocupado no tabuleiro: caractere diferente de '\0' (NULL)
         // Finja uma jogada qualquer. Lembre-se, suje as mãos, faça o sacrifício em nome do teste.
+        // Chegou a hora de refatorar.
+        // Podemos generalizar os ifs "if (x < 1 || x > 3)" e "if (y < 1 || y > 3)" para checkAxis() -> ELIMINAR DUPLICAÇÃO
+        // Os ifs "if (board[x - 1][y - 1] != '\0')" e ação no else "board[x - 1][y - 1] = 'X'" indica uma responsabilidade. Qual?
+        // Bem, parece com algo que diz respeito a "posicionar a jogada no tabuleiro". Chamamos isso de "setBox".
+        // O método play agora se apresenta de uma forma mais elegante e bem compreendida em suas menores partes
+        // Os testes continuam passando. É o dente da catraca segurando o balde. Podemos soltar a mão.
         var tictactoe = new TicTacToe();
 
         assertThrows(RuntimeException.class, () -> {
