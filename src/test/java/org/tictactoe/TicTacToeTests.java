@@ -68,4 +68,10 @@ public class TicTacToeTests {
     void dadaPrimeiraJogada_quandoProximaJogada_entaoVezJogadorX() {
         assertThat('X').isEqualTo(tictactoe.nextPlayer());
     }
+
+    @Test
+    void dadaUltimaJogadaJogadorX_quandoProximaJogada_entaoVezJogadorO() {
+        tictactoe.play(1, 1);
+        assertThat('O').isEqualTo(tictactoe.nextPlayer());
+    }
 }
