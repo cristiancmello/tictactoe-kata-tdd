@@ -1,11 +1,19 @@
 package org.tictactoe;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TicTacToeTests {
+    private TicTacToe tictactoe;
+
+    @BeforeEach
+    public void setup() {
+        this.tictactoe = new TicTacToe();
+    }
+
     @Test
     void quandoPecaColocadaLugarForaEixoX_entaoPosicaoInvalida() {
         // Primeiro passo: criar um objeto? Não, criar um teste, uma asserção. Recomendado por Kent Beck.
@@ -19,8 +27,6 @@ public class TicTacToeTests {
         // Terminou? EXECUTE TODOS OS TESTES. PRECISAM PASSAR SEM EXCEÇÃO!
         // Posso continuar refatorando? Faça o necessário sem exageros, pois faltam outras histórias.
         // CUIDADO: EXAGEROS TORNAM O CÓDIGO POUCO FLEXÍVEL NO INÍCIO DE UM PROJETO.
-        var tictactoe = new TicTacToe();
-
         assertThrows(RuntimeException.class, () -> {
             tictactoe.play(5, 2);
         }, "Posicao Invalida");
@@ -31,8 +37,6 @@ public class TicTacToeTests {
         // STEP RED: teste deve falhar
         // STEP GREEN: teste deve passar. No entanto, devido a similaridade com a implementação anterior,
         // podemos optar por "deixar as mãos mais limpas"
-        var tictactoe = new TicTacToe();
-
         assertThrows(RuntimeException.class, () -> {
             tictactoe.play(3, 5);
         }, "Posicao Invalida");
@@ -50,7 +54,9 @@ public class TicTacToeTests {
         // Bem, parece com algo que diz respeito a "posicionar a jogada no tabuleiro". Chamamos isso de "setBox".
         // O método play agora se apresenta de uma forma mais elegante e bem compreendida em suas menores partes
         // Os testes continuam passando. É o dente da catraca segurando o balde. Podemos soltar a mão.
-        var tictactoe = new TicTacToe();
+        // Uma melhoria adicional: elimine a duplicação da instanciação de tictactoe com o uso de fixture hook before each
+        // Observe que em si, um before each atua como background dos testes, criando nele todas as etapas de given que omitimos
+        // durante todos os testes
 
         assertThrows(RuntimeException.class, () -> {
             tictactoe.play(1, 1);
