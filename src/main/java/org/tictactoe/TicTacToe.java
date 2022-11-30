@@ -1,6 +1,8 @@
 package org.tictactoe;
 
 public class TicTacToe {
+    private static final int SIZE = 3;
+
     private Character[][] board = {
         {'\0', '\0', '\0'},
         {'\0', '\0', '\0'},
@@ -15,16 +17,21 @@ public class TicTacToe {
         lastPlayer = nextPlayer();
         setBox(x, y, lastPlayer);
 
-        for (int i = 0; i < 3; i++) {
-            if (board[0][i] == lastPlayer
-                && board[1][i] == lastPlayer
-                && board[2][i] == lastPlayer
-            ) {
-                return "%s é o vencedor".formatted(lastPlayer);
-            }
+        if (isWin()) {
+            return "%s é o vencedor".formatted(lastPlayer);
         }
 
         return "Sem vencedor";
+    }
+
+    private boolean isWin() {
+        for (int i = 0; i < SIZE; i++) {
+            if (board[0][i] + board[1][i] + board[2][i] == (lastPlayer * SIZE)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void checkAxis(int axis) {
