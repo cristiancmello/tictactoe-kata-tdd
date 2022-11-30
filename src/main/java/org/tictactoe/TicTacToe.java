@@ -12,9 +12,17 @@ public class TicTacToe {
     public String play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
-        setBox(x, y);
-
         lastPlayer = nextPlayer();
+        setBox(x, y, lastPlayer);
+
+        for (int i = 0; i < 3; i++) {
+            if (board[0][i] == lastPlayer
+                && board[1][i] == lastPlayer
+                && board[2][i] == lastPlayer
+            ) {
+                return "%s é o vencedor".formatted(lastPlayer);
+            }
+        }
 
         return "Sem vencedor";
     }
@@ -25,11 +33,11 @@ public class TicTacToe {
         }
     }
 
-    private void setBox(int x, int y) {
+    private void setBox(int x, int y, char lastPlayer) {
         if (board[x - 1][y - 1] != '\0') {
             throw new RuntimeException("Posicao Invalida");
         } else {
-            board[x - 1][y - 1] = 'X';
+            board[x - 1][y - 1] = lastPlayer;
         }
     }
 
