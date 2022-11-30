@@ -40,6 +40,10 @@ public class TicTacToeTests {
 
     @Test
     void quandoPecaoColocadaLugarOcupado_entaoPosicaoInvalida() {
+        // Fazer este teste passar vai ser mais complexo
+        // Precisamos criar a estrutura de dados que representará o tabuleiro (board)
+        // Espaço ocupado no tabuleiro: caractere diferente de '\0' (NULL)
+        // Finja uma jogada qualquer. Lembre-se, suje as mãos, faça o sacrifício em nome do teste.
         var tictactoe = new TicTacToe();
 
         assertThrows(RuntimeException.class, () -> {
