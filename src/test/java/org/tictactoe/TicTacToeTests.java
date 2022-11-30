@@ -95,4 +95,15 @@ public class TicTacToeTests {
         String atual = tictactoe.play(1, 1);
         assertThat(atual).isEqualTo("Sem vencedor");
     }
+
+    @Test
+    void quandoJogarETodaLinhaHorizontalPreenchida_entaoVence() {
+        tictactoe.play(1, 1);
+        tictactoe.play(1, 2);
+        tictactoe.play(2, 1);
+        tictactoe.play(2, 2);
+
+        String atual = tictactoe.play(3, 1);
+        assertThat(atual).isEqualTo("X é o vencedor");
+    }
 }
