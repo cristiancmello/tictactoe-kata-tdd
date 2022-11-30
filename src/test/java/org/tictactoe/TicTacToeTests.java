@@ -12,6 +12,11 @@ public class TicTacToeTests {
         // Kent Beck criou o JUnit...
         // STEP RED: teste precisa falhar obrigatoriamente. Teste criado já passando pode estar indicando falso positivo
         // ou confirmando vieses de implementação
-        assertThrows(RuntimeException.class, () -> {}, "Posicao Invalida");
+        // STEP GREEN: teste precisa agora passar a qualquer custo. Sacrifique padrões, "Dirty hands".
+        var tictactoe = new TicTacToe();
+
+        assertThrows(RuntimeException.class, () -> {
+            tictactoe.play(5, 2);
+        }, "Posicao Invalida");
     }
 }
