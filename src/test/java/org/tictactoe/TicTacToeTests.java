@@ -63,4 +63,9 @@ public class TicTacToeTests {
             tictactoe.play(1, 1);
         }, "Posicao Invalida");
     }
+
+    @Test
+    void dadaPrimeiraJogada_quandoProximaJogada_entaoVezJogadorX() {
+        assertThat('X', tictactoe.nextPlayer());
+    }
 }
