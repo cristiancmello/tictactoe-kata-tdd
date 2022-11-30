@@ -29,6 +29,8 @@ public class TicTacToeTests {
     @Test
     void quandoPecaColocadaLugarForaEixoY_entaoPosicaoInvalida() {
         // STEP RED: teste deve falhar
+        // STEP GREEN: teste deve passar. No entanto, devido a similaridade com a implementação anterior,
+        // podemos optar por "deixar as mãos mais limpas"
         var tictactoe = new TicTacToe();
 
         assertThrows(RuntimeException.class, () -> {

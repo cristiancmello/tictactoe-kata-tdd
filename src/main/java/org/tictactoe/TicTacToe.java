@@ -5,5 +5,9 @@ public class TicTacToe {
         if (x < 1 || x > 3) {
             throw new RuntimeException("Posicao Invalida");
         }
+
+        if (y < 1 || y > 3) {
+            throw new RuntimeException("Posicao Invalida");
+        }
     }
 }
