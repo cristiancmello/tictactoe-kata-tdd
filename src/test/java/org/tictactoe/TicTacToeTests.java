@@ -89,4 +89,10 @@ public class TicTacToeTests {
 
         assertThat('X').isEqualTo(tictactoe.nextPlayer());
     }
+
+    @Test
+    void quandoJogar_entaoNaoExisteVencedor() {
+        String atual = tictactoe.play(1, 1);
+        assertThat(atual).isEqualTo("Sem vencedor");
+    }
 }
