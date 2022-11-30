@@ -71,6 +71,9 @@ public class TicTacToeTests {
 
     @Test
     void dadaUltimaJogadaJogadorX_quandoProximaJogada_entaoVezJogadorO() {
+        // para fazer o teste passar, é necessário agora uma implementação mais convincente
+        // método play consegue agora registrar o ultimo jogador
+        // nextPlayer verifica de verdade a vez do jogador
         tictactoe.play(1, 1);
         assertThat('O').isEqualTo(tictactoe.nextPlayer());
     }
