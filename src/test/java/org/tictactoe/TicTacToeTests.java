@@ -13,6 +13,12 @@ public class TicTacToeTests {
         // STEP RED: teste precisa falhar obrigatoriamente. Teste criado já passando pode estar indicando falso positivo
         // ou confirmando vieses de implementação
         // STEP GREEN: teste precisa agora passar a qualquer custo. Sacrifique padrões, "Dirty hands".
+        // STEP REFACTORING: o teste, agora passando, precisa ser refatorado de maneira a eliminar duplicações,
+        // aplicar clean code, padrões de projeto e etc... "limpar as mãos". Tenha um equilíbrio.
+        // Sugiro começar a refatorar pelo método play
+        // Terminou? EXECUTE TODOS OS TESTES. PRECISAM PASSAR SEM EXCEÇÃO!
+        // Posso continuar refatorando? Faça o necessário sem exageros, pois faltam outras histórias.
+        // CUIDADO: EXAGEROS TORNAM O CÓDIGO POUCO FLEXÍVEL NO INÍCIO DE UM PROJETO.
         var tictactoe = new TicTacToe();
 
         assertThrows(RuntimeException.class, () -> {
