@@ -25,4 +25,14 @@ public class TicTacToeTests {
             tictactoe.play(5, 2);
         }, "Posicao Invalida");
     }
+
+    @Test
+    void quandoPecaColocadaLugarForaEixoY_entaoPosicaoInvalida() {
+        // STEP RED: teste deve falhar
+        var tictactoe = new TicTacToe();
+
+        assertThrows(RuntimeException.class, () -> {
+            tictactoe.play(3, 5);
+        }, "Posicao Invalida");
+    }
 }
