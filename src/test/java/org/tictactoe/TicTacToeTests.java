@@ -37,4 +37,14 @@ public class TicTacToeTests {
             tictactoe.play(3, 5);
         }, "Posicao Invalida");
     }
+
+    @Test
+    void quandoPecaoColocadaLugarOcupado_entaoPosicaoInvalida() {
+        var tictactoe = new TicTacToe();
+
+        assertThrows(RuntimeException.class, () -> {
+            tictactoe.play(1, 1);
+            tictactoe.play(1, 1);
+        }, "Posicao Invalida");
+    }
 }
