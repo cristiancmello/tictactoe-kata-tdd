@@ -1,6 +1,7 @@
 package org.tictactoe;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -76,5 +77,16 @@ public class TicTacToeTests {
         // nextPlayer verifica de verdade a vez do jogador
         tictactoe.play(1, 1);
         assertThat('O').isEqualTo(tictactoe.nextPlayer());
+    }
+
+    @Test
+    @Disabled
+    void dadaUltimaJogadaJogadorO_quandoProximaJogada_entaoVezJogadorX() {
+        // Este teste deveria quebrar. Temos que remover este teste.
+        // Por fins didáticos, coloque a annotation @Disabled no método de teste.
+        tictactoe.play(1, 1);
+        tictactoe.play(1, 2);
+
+        assertThat('X').isEqualTo(tictactoe.nextPlayer());
     }
 }
